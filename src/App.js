@@ -105,17 +105,32 @@ function App() {
         <Bar type="monotone" dataKey="loss" stackId="a" fill="red" />
       </BarChart>
 
-      <h1>Simple Scatterplot</h1>
-      <ScatterChart
-        width={1000}
-        height={300}
-        margin={{ top: 20, right: 20, bottom: 10, left: 10 }}
+<h1>Simple Scatterplot</h1>
+     <ScatterChart
+        width={750}
+        height={250}
+        margin={{ top: 0, right: 0, bottom: 0, left: 0 }}
       >
-        <CartesianGrid strokeDasharray="3 3" />
-        <XAxis type="category" dataKey="month" name="month"></XAxis>
-        <YAxis type="number" dataKey="savings" name="savings"></YAxis>
+        <CartesianGrid />
+        <XAxis name="month" unit="month" />
+        <YAxis
+          yAxisId="left"
+          type="number"
+          dataKey="savings"
+          name="savings"
+          stroke="#8884d8"
+        />
+        <YAxis
+          yAxisId="right"
+          type="number"
+          dataKey="loss"
+          name="loss"
+          orientation="right"
+          stroke="#82ca9d"
+        />
         <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-        <Scatter data={data} fill="green"></Scatter>
+        <Scatter yAxisId="left" name="Savings" data={data} fill="#8884d8" />
+        <Scatter yAxisId="right" name="loss" data={data} fill="#82ca9d" />
       </ScatterChart>
 
       <h1>Pie Chart</h1>
